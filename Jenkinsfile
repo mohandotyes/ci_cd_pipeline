@@ -15,5 +15,4 @@ pipeline {
                 git 'https://github.com/mohandotyes/ci_cd_pipeline.git'
             }
         }
-
     }
