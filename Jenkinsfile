@@ -1,18 +1,26 @@
 pipeline {
-    agent any
-    tools {
-        jdk 'jdk17'
-        
-    }
-    stages {
-        stage ("clean workspace") {
-            steps {
-                cleanWs()
-            }
+ agent any
+   stages{
+     stage('checkout') {
+       steps {
+          checkout scm
+       }
+     }
+     stage('build') {
+       steps {
+          //sh 'mvn clean install'
+       }
+     }
+    
+       stage('deploy') {
+        steps {
+         echo "deploying...."
         }
-        stage ("Git Checkout") {
-            steps {
-                git 'https://github.com/mohandotyes/ci_cd_pipeline.git'
-            }
+       }
+        stage('test') {
+          steps {
+           echo "testing..."
+          }
         }
-    }
+       }
+     }
