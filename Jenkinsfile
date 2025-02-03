@@ -1,5 +1,9 @@
 pipeline {
  agent any
+ tools {
+        jdk 'jdk17'
+        maven '3.9.9'
+    }
    stages{
      stage('checkout') {
        steps {
@@ -8,7 +12,7 @@ pipeline {
      }
      stage('build') {
        steps {
-          echo "maven"
+          sh 'mvn clean install'
        }
      }
     
