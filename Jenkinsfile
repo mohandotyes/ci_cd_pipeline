@@ -18,7 +18,7 @@ pipeline {
     
        stage('deploy') {
         steps {
-         echo "deploying...."
+         sh 'mvnw tomcat9:run'
         }
        }
         stage('test') {
